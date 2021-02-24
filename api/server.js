@@ -2,7 +2,8 @@ const express = require('express');
 const helmet = require('helmet');
 const cors = require('cors');
 
-// routers will go here
+const authRouter = require('./auth/auth-router');
+const usersRouter = require('./users/users-router');
 
 const server = express();
 
@@ -11,6 +12,8 @@ server.use(express.json());
 server.use(cors());
 
 // connecting routers will go here
+server.use('/api/auth', authRouter);
+server.use('/api/users', usersRouter);
 
 server.get('/', (req, res) => {
     res.json({ api: 'is aliveeee!'});

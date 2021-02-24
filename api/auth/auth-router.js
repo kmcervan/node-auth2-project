@@ -41,7 +41,7 @@ router.post('/login', (req, res) => {
                 const token = makeToken(user)
 
                 res.status(200).json({
-                    message: 'Welcome back to your world' + user.username,
+                    message: 'Welcome back to your world ' + user.username,
                     token
                 });
             }else {
